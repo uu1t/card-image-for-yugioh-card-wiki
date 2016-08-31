@@ -6,7 +6,7 @@
   "scripts": {
     "build": "browserify src/app.js -o dist/bundle.js",
     "clean": "rm -rf dist/bundle.js",
-    "test": "mocha",
+    "test": "karma start",
     "lint": "eslint src",
     "watch": "watchify src/app.js -o dist/bundle.js -v"
   },
@@ -22,9 +22,17 @@
   "homepage": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
   "devDependencies": {
     "browserify": "^13.1.0",
+    "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "eslint-config-airbnb-base": "^5.0.3",
     "eslint-plugin-import": "^1.14.0",
+    "karma": "^1.2.0",
+    "karma-browserify": "^5.1.0",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "^1.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
     "mocha": "^3.0.2",
     "watchify": "^3.7.0"
   }
