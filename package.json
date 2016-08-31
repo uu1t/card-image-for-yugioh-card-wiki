@@ -7,6 +7,7 @@
     "build": "browserify src/app.js -o dist/bundle.js",
     "clean": "rm -rf dist/bundle.js",
     "test": "mocha",
+    "lint": "eslint src",
     "watch": "watchify src/app.js -o dist/bundle.js -v"
   },
   "repository": {
@@ -21,6 +22,9 @@
   "homepage": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
   "devDependencies": {
     "browserify": "^13.1.0",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb-base": "^5.0.3",
+    "eslint-plugin-import": "^1.14.0",
     "mocha": "^3.0.2",
     "watchify": "^3.7.0"
   }
