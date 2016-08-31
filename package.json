@@ -1,0 +1,19 @@
+{
+  "name": "画像ビューア for 遊戯王カードWiki",
+  "version": "0.0.1",
+  "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
+  "main": "content_script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki"
+  },
+  "author": "Yuichi Tanikawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki/issues"
+  },
+  "homepage": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki"
+}

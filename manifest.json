@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "画像ビューア for 遊戯王カードWiki",
+  "version": "0.0.1",
+  "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
+  "author": "Yuichi Tanikawa",
+  "homepage_url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
+  "icons": {
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://yugioh-wiki.net/*"],
+      "css": ["style.css"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
