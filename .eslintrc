@@ -2,6 +2,10 @@
   "extends": "airbnb-base/legacy",
   "rules": {
     "func-names": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__html__"] }],
     "vars-on-top": "off"
+  },
+  "env": {
+    "mocha": true
   }
 }
