@@ -1,5 +1,5 @@
 {
-  "name": "画像ビューア for 遊戯王カードWiki",
+  "name": "image-viewer-for-yugioh-card-wiki",
   "version": "0.0.1",
   "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
   "main": "content_script.js",
