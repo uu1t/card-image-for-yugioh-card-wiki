@@ -4,6 +4,8 @@
   "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
   "main": "content_script.js",
   "scripts": {
+    "build": "browserify src/app.js -o dist/bundle.js",
+    "clean": "rm -rf dist/bundle.js",
     "test": "mocha"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
   "devDependencies": {
+    "browserify": "^13.1.0",
     "mocha": "^3.0.2"
   }
 }

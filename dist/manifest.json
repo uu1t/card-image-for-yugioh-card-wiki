@@ -11,7 +11,7 @@
     {
       "matches": ["http://yugioh-wiki.net/index.php?*"],
       "css": ["style.css"],
-      "js": ["content_script.js"]
+      "js": ["bundle.js"]
     }
   ],
   "permissions": ["http://yugioh.wikia.com/"],
