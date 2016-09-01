@@ -8,16 +8,12 @@ function NameView($el) {
 NameView.prototype.re = /《([^/]+)\/([^》]+)》/;
 
 NameView.prototype.setName = function () {
-  if (!this.$el) {
+  var found = this.$el.textContent.match(this.re);
+  if (!found || found.length < 3) {
     return;
   }
 
-  var matchArray = this.$el.textContent.match(this.re);
-  if (!matchArray || matchArray.length < 3) {
-    return;
-  }
-
-  this.name = matchArray[2];
+  this.name = found[2];
 };
 
 module.exports = NameView;
