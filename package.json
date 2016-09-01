@@ -28,10 +28,10 @@
     "eslint-plugin-import": "^1.14.0",
     "karma": "^1.2.0",
     "karma-browserify": "^5.1.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-html2js-preprocessor": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
-    "karma-phantomjs-launcher": "^1.0.2",
     "mocha": "^3.0.2",
     "watchify": "^3.7.0"
   }
