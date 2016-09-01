@@ -14,7 +14,7 @@ Viewer.prototype.showImage = function () {
   }
 
   var wikia = new Wikia();
-  wikia.fetchImageUrl(this.nameView.name, function (imageUrl) {
+  wikia.fetchImageUrl(this.nameView.name).then(function (imageUrl) {
     var imageView = new ImageView(imageUrl, this.nameView.$el);
     imageView.show();
   }.bind(this));
