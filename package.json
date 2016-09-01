@@ -8,7 +8,7 @@
     "clean": "rm -rf dist/bundle.js",
     "test": "karma start",
     "lint": "eslint src test",
-    "watch": "watchify src/app.js -o dist/bundle.js -v"
+    "watch": "watchify src/app.js -o dist/bundle.js -d -v"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
     "eslint-plugin-import": "^1.14.0",
     "karma": "^1.2.0",
     "karma-browserify": "^5.1.0",
-    "karma-fixture": "^0.2.6",
     "karma-html2js-preprocessor": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
