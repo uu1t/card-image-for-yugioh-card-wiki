@@ -14,6 +14,11 @@ module.exports = function (config) {
     browserify: {
       debug: true,
     },
+    clinet: {
+      mocha: {
+        timeout: 5000,
+      },
+    },
     reporters: ['mocha'],
     port: 9876,
     colors: true,
