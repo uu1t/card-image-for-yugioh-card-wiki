@@ -1,7 +1,7 @@
 {
   "name": "image-viewer-for-yugioh-card-wiki",
   "version": "0.0.1",
-  "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
+  "description": "Show card images on Yu-Gi-Oh! Card Wiki.",
   "main": "bundle.js",
   "scripts": {
     "build": "browserify src/app.js -o dist/bundle.js",

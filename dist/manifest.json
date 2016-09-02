@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "画像ビューア for 遊戯王カードWiki",
+  "name": "__MSG_extName__",
   "version": "0.0.1",
-  "description": "遊戯王カードWikiでカード画像を表示・検索できます。",
+  "default_locale": "ja",
+  "description": "__MSG_extDescription__",
   "author": "Yuichi Tanikawa",
   "homepage_url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
   "icons": {
