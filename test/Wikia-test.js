@@ -6,8 +6,8 @@ describe('Wikia', function () {
     it('fetches image url', function () {
       var wikia = new Wikia();
 
-      // See http://beta.json-generator.com/4JFJb--ob
-      wikia.imageServingUrl = 'http://beta.json-generator.com/api/json/get/4JFJb--ob';
+      // See http://myjson.com/3092o
+      wikia.imageServingUrl = 'https://api.myjson.com/bins/3092o';
 
       return wikia.fetchImageUrl('').then(function (url) {
         expect(url).to.equal('http://example.com/');
