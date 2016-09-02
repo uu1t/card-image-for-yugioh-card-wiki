@@ -10,7 +10,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://yugioh-wiki.net/index.php?*"],
+      "matches": [
+        "http://yugioh-wiki.net/?*",
+        "http://yugioh-wiki.net/index.php?*"
+      ],
       "css": ["style.css"],
       "js": ["bundle.js"]
     }
