@@ -5,10 +5,10 @@
   "main": "bundle.js",
   "scripts": {
     "build": "browserify src/app.js -o dist/bundle.js",
-    "clean": "rm -rf dist/bundle.js",
-    "test": "karma start",
+    "test": "npm run lint && karma start",
     "lint": "eslint src test",
-    "watch": "watchify src/app.js -o dist/bundle.js -d -v"
+    "watch": "watchify src/app.js -o dist/bundle.js -d -v",
+    "zip": "npm run build && zip -r dist.zip dist"
   },
   "repository": {
     "type": "git",
