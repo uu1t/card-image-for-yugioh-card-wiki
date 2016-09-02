@@ -1,5 +1,9 @@
-var expect = require('chai').expect;
+var chai = require('chai');
+var dirtyChai = require('dirty-chai');
+var expect = chai.expect;
 var ImageView = require('../src/ImageView');
+
+chai.use(dirtyChai);
 
 describe('ImageView', function () {
   describe('#constructor()', function () {
@@ -35,7 +39,7 @@ describe('ImageView', function () {
       var $image = $name.nextSibling;
       expect($image).to.have.property('nodeName', 'IMG');
       expect($image).to.have.property('src', 'https://placehold.it/200x300');
-      expect($image).to.have.property('id', 'image-viewer_img');
+      expect($image.classList.contains('image-viewer__image')).to.be.ok();
     });
   });
 });
