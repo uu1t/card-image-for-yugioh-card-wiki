@@ -70,4 +70,30 @@ describe('Wikia', function () {
       expect(contents[567361]).to.have.property('content', 'Ｃ－クラッシュ・ワイバーン');
     });
   });
+
+  describe('#searchCardGallery()', function () {
+    it('fetches card gallery items', function () {
+      var wikia = new Wikia();
+
+      // See http://myjson.com/2zobg
+      wikia.URLs = { searchCardGallery: 'https://api.myjson.com/bins/2zobg' };
+
+      return wikia.searchCardGallery('').then(function (items) {
+        expect(items).to.be.a('array');
+        items.forEach(function (item) {
+          expect(item).to.contain.all.keys('id', 'title');
+        });
+      });
+    });
+
+    it('sends requests with URL-encoded query', function () {
+      var wikia = new Wikia();
+      wikia.URLs = { searchCardGallery: 'https://httpbin.org/get?query=' };
+      wikia.parseSearchCardGallery = parseHTTPBinArg.bind(null, 'query');
+
+      return wikia.searchCardGallery('青眼の白龍').then(function (query) {
+        expect(query).to.equal('青眼の白龍');
+      });
+    });
+  });
 });

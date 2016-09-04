@@ -5,6 +5,10 @@ function Wikia() {}
 Wikia.prototype.imageServingUrl = 'http://yugioh.wikia.com/api.php?action=imageserving&format=json&wisTitle=';
 Wikia.prototype.fetchContentsUrl = 'http://yugioh.wikia.com/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=';
 
+Wikia.prototype.URLs = {
+  searchCardGallery: 'http://yugioh.wikia.com/api/v1/Search/List?namespaces=100&query=',
+};
+
 Wikia.prototype.toJSON = function (response) {
   return response.json();
 };
@@ -33,6 +37,15 @@ Wikia.prototype.parseContents = function (json) {
   }
 
   return pages;
+};
+
+Wikia.prototype.searchCardGallery = function (jaName) {
+  var url = this.URLs.searchCardGallery + encodeURI(jaName);
+  return fetch(url).then(this.toJSON).then(this.parseSearchCardGallery);
+};
+
+Wikia.prototype.parseSearchCardGallery = function (json) {
+  return json.items;
 };
 
 module.exports = Wikia;
