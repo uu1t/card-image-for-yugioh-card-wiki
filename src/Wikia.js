@@ -48,4 +48,14 @@ Wikia.prototype.parseSearchCardGallery = function (json) {
   return json.items;
 };
 
+Wikia.prototype.cardGalleryToEnNames = function (items) {
+  var re = /^Card Gallery:(.+)$/;
+  return items.map(function (item) {
+    var found = item.title.match(re);
+    if (found) {
+      return found[1];
+    }
+  }).filter(Boolean);
+};
+
 module.exports = Wikia;

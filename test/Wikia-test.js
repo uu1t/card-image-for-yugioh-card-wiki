@@ -96,4 +96,29 @@ describe('Wikia', function () {
       });
     });
   });
+
+  describe('#cardGalleryToEnNames()', function () {
+    it('extracts English names from card gallery', function () {
+      var wikia = new Wikia();
+      var items = [
+        { title: 'Card Gallery:ABC' },
+        { title: 'Card Gallery:DEF' },
+      ];
+
+      var enNames = wikia.cardGalleryToEnNames(items);
+      expect(enNames).to.deep.equal(['ABC', 'DEF']);
+    });
+
+    it('skips items whose title are not card gallery', function () {
+      var wikia = new Wikia();
+      var items = [
+        { title: 'Card Gallery:ABC' },
+        { title: 'NOT Card Callery:123' },
+        { title: 'Card Gallery:DEF' },
+      ];
+
+      var enNames = wikia.cardGalleryToEnNames(items);
+      expect(enNames).to.deep.equal(['ABC', 'DEF']);
+    });
+  });
 });
