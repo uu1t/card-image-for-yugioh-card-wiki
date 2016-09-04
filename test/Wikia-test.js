@@ -37,9 +37,8 @@ describe('Wikia', function () {
       wikia.fetchContentsUrl = 'https://api.myjson.com/bins/25v0k';
 
       return wikia.fetchContents([]).then(function (contents) {
-        expect(contents).to.be.a('object');
-        Object.keys(contents).forEach(function (id) {
-          expect(contents[id]).to.contain.all.keys('id', 'title', 'content');
+        contents.forEach(function (content) {
+          expect(content).to.contain.all.keys('id', 'title', 'content');
         });
       });
     });
@@ -59,15 +58,13 @@ describe('Wikia', function () {
     it('parses contents json', function () {
       var wikia = new Wikia();
       var json = require('./fixtures/contents-a-b-c.json');
-      var contents = wikia.parseContents(json);
 
-      expect(contents).to.have.all.keys('567356', '567360', '567361');
-      expect(contents[567356]).to.have.property('id', 567356);
-      expect(contents[567356]).to.have.property('content', 'Ａ－アサルト・コア');
-      expect(contents[567360]).to.have.property('id', 567360);
-      expect(contents[567360]).to.have.property('content', 'Ｂ－バスター・ドレイク');
-      expect(contents[567361]).to.have.property('id', 567361);
-      expect(contents[567361]).to.have.property('content', 'Ｃ－クラッシュ・ワイバーン');
+      var contents = wikia.parseContents(json);
+      expect(contents).to.deep.equal([
+        { id: 567356, title: 'A-Assault Core', content: 'Ａ－アサルト・コア' },
+        { id: 567360, title: 'B-Buster Drake', content: 'Ｂ－バスター・ドレイク' },
+        { id: 567361, title: 'C-Crush Wyvern', content: 'Ｃ－クラッシュ・ワイバーン' },
+      ]);
     });
   });
 

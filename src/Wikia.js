@@ -29,14 +29,13 @@ Wikia.prototype.fetchContents = function (titles) {
 
 Wikia.prototype.parseContents = function (json) {
   var pages = json.query.pages;
-  for (var id in pages) {
-    if (Object.prototype.hasOwnProperty.call(pages, id)) {
-      pages[id].id = pages[id].pageid;
-      pages[id].content = pages[id].revisions[0]['*'];
-    }
-  }
-
-  return pages;
+  return Object.keys(pages).map(function (id) {
+    return {
+      id: pages[id].pageid,
+      title: pages[id].title,
+      content: pages[id].revisions[0]['*'],
+    };
+  });
 };
 
 Wikia.prototype.searchCardGallery = function (jaName) {
