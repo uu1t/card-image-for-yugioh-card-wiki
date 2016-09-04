@@ -22,6 +22,21 @@ Wikia.prototype.extractUrl = function (json) {
   return json.image.imageserving;
 };
 
+Wikia.prototype.contentToJaName = function (content) {
+  var re = /\n\| ja_name += ([^\n]+)\n/;
+  var found = content.match(re);
+  if (found) {
+    return this.toBaseJaName(found[1]);
+  }
+};
+
+Wikia.prototype.toBaseJaName = function (name) {
+  var re = /{{Ruby\|([^|]+)\|([^}]+)}}/g;
+  return name
+    .replace(re, '$1')
+    .replace(/．/g, '.');  // convert to half width
+};
+
 Wikia.prototype.fetchContents = function (titles) {
   var url = this.fetchContentsUrl + encodeURI(titles.join('|'));
   return fetch(url).then(this.toJSON).then(this.parseContents);

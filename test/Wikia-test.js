@@ -68,6 +68,40 @@ describe('Wikia', function () {
     });
   });
 
+  describe('#contentToJaName', function () {
+    it('extracts Japanese name', function () {
+      var wikia = new Wikia();
+      var json = require('./fixtures/contents-a-b-c-raw.json');
+      var ids = [567356, 567360, 567361];
+      var contents = ids.map(function (id) {
+        return json.query.pages[id].revisions[0]['*'];
+      });
+
+      var jaNames = contents.map(wikia.contentToJaName.bind(wikia));
+      expect(jaNames[0]).to.equal('Ａ－アサルト・コア');
+      expect(jaNames[1]).to.equal('Ｂ－バスター・ドレイク');
+      expect(jaNames[2]).to.equal('Ｃ－クラッシュ・ワイバーン');
+    });
+  });
+
+  describe('#toBaseJaName', function () {
+    it('removes ruby text', function () {
+      var wikia = new Wikia();
+      var jaName = "{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|呪|じゅ}}{{Ruby|血|けつ}}{{Ruby|王|おう}}サイフリート";
+
+      var baseJaName = wikia.toBaseJaName(jaName);
+      expect(baseJaName).to.equal('ＤＤＤ呪血王サイフリート');
+    });
+
+    it('converts fullwidth periods to halfwidth ones', function () {
+      var wikia = new Wikia();
+      var jaName = "{{Ruby|Ｄ|ディー}}．{{Ruby|Ｄ|ディー}}．クロウ";
+
+      var baseJaName = wikia.toBaseJaName(jaName);
+      expect(baseJaName).to.equal('Ｄ.Ｄ.クロウ');
+    });
+  });
+
   describe('#searchCardGallery()', function () {
     it('fetches card gallery items', function () {
       var wikia = new Wikia();
