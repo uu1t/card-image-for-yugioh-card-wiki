@@ -14,7 +14,7 @@ Wikia.prototype.toJSON = function (response) {
 };
 
 Wikia.prototype.fetchImageUrl = function (name) {
-  var url = this.imageServingUrl + encodeURI(name);
+  var url = this.imageServingUrl + encodeURIComponent(name);
   return fetch(url).then(this.toJSON).then(this.extractUrl);
 };
 
@@ -56,13 +56,15 @@ Wikia.prototype.toBaseJaName = function (name) {
 };
 
 Wikia.prototype.fetchContents = function (titles) {
-  var url = this.fetchContentsUrl + encodeURI(titles.join('|'));
+  var url = this.fetchContentsUrl + encodeURIComponent(titles.join('|'));
   return fetch(url).then(this.toJSON).then(this.parseContents);
 };
 
 Wikia.prototype.parseContents = function (json) {
   var pages = json.query.pages;
-  return Object.keys(pages).map(function (id) {
+  return Object.keys(pages).filter(function (id) {
+    return Number(id) > 0;
+  }).map(function (id) {
     return {
       id: pages[id].pageid,
       title: pages[id].title,
@@ -72,7 +74,7 @@ Wikia.prototype.parseContents = function (json) {
 };
 
 Wikia.prototype.searchCardGallery = function (jaName) {
-  var url = this.URLs.searchCardGallery + encodeURI(jaName);
+  var url = this.URLs.searchCardGallery + encodeURIComponent(jaName);
   return fetch(url).then(this.toJSON).then(this.parseSearchCardGallery);
 };
 

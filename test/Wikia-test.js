@@ -18,13 +18,23 @@ describe('Wikia', function () {
       });
     });
 
-    it('sends request with name', function () {
+    it('sends a request with titles', function () {
       var wikia = new Wikia();
       wikia.imageServingUrl = 'https://httpbin.org/get?wisTitle=';
       wikia.extractUrl = parseHTTPBinArg.bind(null, 'wisTitle');
 
       return wikia.fetchImageUrl('Blue-Eyes White Dragon').then(function (name) {
         expect(name).to.equal('Blue-Eyes White Dragon');
+      });
+    });
+
+    it('sends a request with a title containing &', function () {
+      var wikia = new Wikia();
+      wikia.imageServingUrl = 'https://httpbin.org/get?wisTitle=';
+      wikia.extractUrl = parseHTTPBinArg.bind(null, 'wisTitle');
+
+      return wikia.fetchImageUrl('Gogogo Aristera & Dexia').then(function (name) {
+        expect(name).to.equal('Gogogo Aristera & Dexia');
       });
     });
   });
@@ -43,13 +53,23 @@ describe('Wikia', function () {
       });
     });
 
-    it('sends requests with titles delimited with |', function () {
+    it('sends a request with titles delimited with |', function () {
       var wikia = new Wikia();
       wikia.fetchContentsUrl = 'https://httpbin.org/get?titles=';
       wikia.parseContents = parseHTTPBinArg.bind(null, 'titles');
 
       return wikia.fetchContents(['t1', 't2', 't3']).then(function (titles) {
         expect(titles).to.equal('t1|t2|t3');
+      });
+    });
+
+    it('sends a request with titles containing &', function () {
+      var wikia = new Wikia();
+      wikia.fetchContentsUrl = 'https://httpbin.org/get?titles=';
+      wikia.parseContents = parseHTTPBinArg.bind(null, 'titles');
+
+      return wikia.fetchContents(['a & b']).then(function (titles) {
+        expect(titles).to.equal('a & b');
       });
     });
   });
@@ -117,7 +137,7 @@ describe('Wikia', function () {
       });
     });
 
-    it('sends requests with URL-encoded query', function () {
+    it('sends a request with URL-encoded query', function () {
       var wikia = new Wikia();
       wikia.URLs = { searchCardGallery: 'https://httpbin.org/get?query=' };
       wikia.parseSearchCardGallery = parseHTTPBinArg.bind(null, 'query');
