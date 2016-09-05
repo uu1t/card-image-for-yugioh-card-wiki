@@ -22,6 +22,24 @@ Wikia.prototype.extractUrl = function (json) {
   return json.image.imageserving;
 };
 
+Wikia.prototype.fetchImageUrlForJa = function (jaName) {
+  return this.searchCardGallery(jaName)
+    .then(this.cardGalleryToEnNames)
+    .then(this.fetchContents.bind(this))
+    .then(this.searchContentsFor.bind(this, jaName))
+    .then(this.fetchImageUrl.bind(this));
+};
+
+Wikia.prototype.searchContentsFor = function (jaName, contents) {
+  for (var i = 0; i < contents.length; i++) {
+    if (this.contentToJaName(contents[i].content) === jaName) {
+      return contents[i].title;
+    }
+  }
+
+  return Promise.reject(new Error('Card not found: ' + jaName));
+};
+
 Wikia.prototype.contentToJaName = function (content) {
   var re = /\n\| ja_name += ([^\n]+)\n/;
   var found = content.match(re);
