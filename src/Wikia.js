@@ -15,7 +15,9 @@ Wikia.prototype.toJSON = function (response) {
 
 Wikia.prototype.fetchImageUrl = function (name) {
   var url = this.imageServingUrl + encodeURIComponent(name);
-  return fetch(url).then(this.toJSON).then(this.extractUrl);
+  return fetch(url).then(this.toJSON).then(function (json) {
+    return this.extractUrl(json) || Promise.reject(new Error('Image not found for ' + name));
+  }.bind(this));
 };
 
 Wikia.prototype.extractUrl = function (json) {
@@ -37,7 +39,7 @@ Wikia.prototype.searchContentsFor = function (jaName, contents) {
     }
   }
 
-  return Promise.reject(new Error('Card not found: ' + jaName));
+  return Promise.reject(new Error('Card not found for ' + jaName));
 };
 
 Wikia.prototype.contentToJaName = function (content) {

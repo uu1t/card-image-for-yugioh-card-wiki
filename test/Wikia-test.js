@@ -37,6 +37,17 @@ describe('Wikia', function () {
         expect(name).to.equal('Gogogo Aristera & Dexia');
       });
     });
+
+    it('rejects when the image is not found', function () {
+      var wikia = new Wikia();
+
+      // See http://myjson.com/55cow
+      wikia.imageServingUrl = 'https://api.myjson.com/bins/55cow?wisTitle=';
+
+      return wikia.fetchImageUrl('No-image').catch(function (error) {
+        expect(error.message).to.equal('Image not found for No-image');
+      });
+    });
   });
 
   describe('#fetchContents()', function () {
