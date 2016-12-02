@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 var expect = require('chai').expect;
 var Wikia = require('../src/Wikia');
 
@@ -11,7 +12,7 @@ describe('Wikia', function () {
       var wikia = new Wikia();
 
       // See http://myjson.com/3092o
-      wikia.imageServingUrl = 'https://api.myjson.com/bins/3092o';
+      wikia.URLs.imageServing = 'https://api.myjson.com/bins/3092o';
 
       return wikia.fetchImageUrl('').then(function (url) {
         expect(url).to.equal('http://example.com/');
@@ -20,7 +21,7 @@ describe('Wikia', function () {
 
     it('sends a request with titles', function () {
       var wikia = new Wikia();
-      wikia.imageServingUrl = 'https://httpbin.org/get?wisTitle=';
+      wikia.URLs.imageServing = 'https://httpbin.org/get?wisTitle=';
       wikia.extractUrl = parseHTTPBinArg.bind(null, 'wisTitle');
 
       return wikia.fetchImageUrl('Blue-Eyes White Dragon').then(function (name) {
@@ -30,7 +31,7 @@ describe('Wikia', function () {
 
     it('sends a request with a title containing &', function () {
       var wikia = new Wikia();
-      wikia.imageServingUrl = 'https://httpbin.org/get?wisTitle=';
+      wikia.URLs.imageServing = 'https://httpbin.org/get?wisTitle=';
       wikia.extractUrl = parseHTTPBinArg.bind(null, 'wisTitle');
 
       return wikia.fetchImageUrl('Gogogo Aristera & Dexia').then(function (name) {
@@ -42,7 +43,7 @@ describe('Wikia', function () {
       var wikia = new Wikia();
 
       // See http://myjson.com/55cow
-      wikia.imageServingUrl = 'https://api.myjson.com/bins/55cow?wisTitle=';
+      wikia.URLs.imageServing = 'https://api.myjson.com/bins/55cow?wisTitle=';
 
       return wikia.fetchImageUrl('No-image').catch(function (error) {
         expect(error.message).to.equal('Image not found for No-image');
@@ -55,7 +56,7 @@ describe('Wikia', function () {
       var wikia = new Wikia();
 
       // See http://myjson.com/25v0k
-      wikia.fetchContentsUrl = 'https://api.myjson.com/bins/25v0k';
+      wikia.URLs.fetchContents = 'https://api.myjson.com/bins/25v0k';
 
       return wikia.fetchContents([]).then(function (contents) {
         contents.forEach(function (content) {
@@ -66,7 +67,7 @@ describe('Wikia', function () {
 
     it('sends a request with titles delimited with |', function () {
       var wikia = new Wikia();
-      wikia.fetchContentsUrl = 'https://httpbin.org/get?titles=';
+      wikia.URLs.fetchContents = 'https://httpbin.org/get?titles=';
       wikia.parseContents = parseHTTPBinArg.bind(null, 'titles');
 
       return wikia.fetchContents(['t1', 't2', 't3']).then(function (titles) {
@@ -76,7 +77,7 @@ describe('Wikia', function () {
 
     it('sends a request with titles containing &', function () {
       var wikia = new Wikia();
-      wikia.fetchContentsUrl = 'https://httpbin.org/get?titles=';
+      wikia.URLs.fetchContents = 'https://httpbin.org/get?titles=';
       wikia.parseContents = parseHTTPBinArg.bind(null, 'titles');
 
       return wikia.fetchContents(['a & b']).then(function (titles) {
@@ -94,7 +95,7 @@ describe('Wikia', function () {
       expect(contents).to.deep.equal([
         { id: 567356, title: 'A-Assault Core', content: 'Ａ－アサルト・コア' },
         { id: 567360, title: 'B-Buster Drake', content: 'Ｂ－バスター・ドレイク' },
-        { id: 567361, title: 'C-Crush Wyvern', content: 'Ｃ－クラッシュ・ワイバーン' },
+        { id: 567361, title: 'C-Crush Wyvern', content: 'Ｃ－クラッシュ・ワイバーン' }
       ]);
     });
   });
@@ -118,7 +119,8 @@ describe('Wikia', function () {
   describe('#toBaseJaName', function () {
     it('removes ruby text', function () {
       var wikia = new Wikia();
-      var jaName = "{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|呪|じゅ}}{{Ruby|血|けつ}}{{Ruby|王|おう}}サイフリート";
+      // eslint-disable-next-line max-len
+      var jaName = '{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|Ｄ|ディー}}{{Ruby|呪|じゅ}}{{Ruby|血|けつ}}{{Ruby|王|おう}}サイフリート';
 
       var baseJaName = wikia.toBaseJaName(jaName);
       expect(baseJaName).to.equal('ＤＤＤ呪血王サイフリート');
@@ -126,7 +128,7 @@ describe('Wikia', function () {
 
     it('converts fullwidth periods to halfwidth ones', function () {
       var wikia = new Wikia();
-      var jaName = "{{Ruby|Ｄ|ディー}}．{{Ruby|Ｄ|ディー}}．クロウ";
+      var jaName = '{{Ruby|Ｄ|ディー}}．{{Ruby|Ｄ|ディー}}．クロウ';
 
       var baseJaName = wikia.toBaseJaName(jaName);
       expect(baseJaName).to.equal('Ｄ.Ｄ.クロウ');
@@ -164,7 +166,7 @@ describe('Wikia', function () {
       var wikia = new Wikia();
       var items = [
         { title: 'Card Gallery:ABC' },
-        { title: 'Card Gallery:DEF' },
+        { title: 'Card Gallery:DEF' }
       ];
 
       var enNames = wikia.cardGalleryToEnNames(items);
@@ -176,7 +178,7 @@ describe('Wikia', function () {
       var items = [
         { title: 'Card Gallery:ABC' },
         { title: 'NOT Card Callery:123' },
-        { title: 'Card Gallery:DEF' },
+        { title: 'Card Gallery:DEF' }
       ];
 
       var enNames = wikia.cardGalleryToEnNames(items);

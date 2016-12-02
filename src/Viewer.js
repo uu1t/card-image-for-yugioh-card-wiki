@@ -21,6 +21,7 @@ Viewer.prototype.showImage = function () {
     promise = wikia.fetchImageUrlForJa(this.nameView.jaName);
   }
 
+  // eslint-disable-next-line no-console
   promise.then(this.showImageView.bind(this)).catch(console.error.bind(console));
 };
 

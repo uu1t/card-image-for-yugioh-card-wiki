@@ -1,20 +1,22 @@
 'use strict';
 
+var baseUrl = 'http://yugioh.wikia.com';
 function Wikia() {}
 
-Wikia.prototype.imageServingUrl = 'http://yugioh.wikia.com/api.php?action=imageserving&format=json&wisTitle=';
-Wikia.prototype.fetchContentsUrl = 'http://yugioh.wikia.com/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=';
-
+/* eslint-disable max-len */
 Wikia.prototype.URLs = {
-  searchCardGallery: 'http://yugioh.wikia.com/api/v1/Search/List?namespaces=100&query=',
+  fetchContents: baseUrl + '/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=',
+  imageServing: baseUrl + '/api.php?action=imageserving&format=json&wisTitle=',
+  searchCardGallery: baseUrl + '/api/v1/Search/List?namespaces=100&query='
 };
+/* eslint-enable max-len */
 
 Wikia.prototype.toJSON = function (response) {
   return response.json();
 };
 
 Wikia.prototype.fetchImageUrl = function (name) {
-  var url = this.imageServingUrl + encodeURIComponent(name);
+  var url = this.URLs.imageServing + encodeURIComponent(name);
   return fetch(url).then(this.toJSON).then(function (json) {
     return this.extractUrl(json) || Promise.reject(new Error('Image not found for ' + name));
   }.bind(this));
@@ -48,6 +50,7 @@ Wikia.prototype.contentToJaName = function (content) {
   if (found) {
     return this.toBaseJaName(found[1]);
   }
+  return '';
 };
 
 Wikia.prototype.toBaseJaName = function (name) {
@@ -58,7 +61,7 @@ Wikia.prototype.toBaseJaName = function (name) {
 };
 
 Wikia.prototype.fetchContents = function (titles) {
-  var url = this.fetchContentsUrl + encodeURIComponent(titles.join('|'));
+  var url = this.URLs.fetchContents + encodeURIComponent(titles.join('|'));
   return fetch(url).then(this.toJSON).then(this.parseContents);
 };
 
@@ -70,7 +73,7 @@ Wikia.prototype.parseContents = function (json) {
     return {
       id: pages[id].pageid,
       title: pages[id].title,
-      content: pages[id].revisions[0]['*'],
+      content: pages[id].revisions[0]['*']
     };
   });
 };
@@ -91,6 +94,7 @@ Wikia.prototype.cardGalleryToEnNames = function (items) {
     if (found) {
       return found[1];
     }
+    return '';
   }).filter(Boolean);
 };
 

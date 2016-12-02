@@ -6,7 +6,7 @@
     "vars-on-top": "off"
   },
   "env": {
-    "mocha": true,
+    "mocha": true
   },
   "globals": {
     "Promise": true
