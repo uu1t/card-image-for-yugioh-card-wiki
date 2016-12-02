@@ -1,6 +1,6 @@
 {
   "name": "card-image-for-yugioh-card-wiki",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Show card images on Yu-Gi-Oh! Card Wiki.",
   "main": "bundle.js",
   "scripts": {
