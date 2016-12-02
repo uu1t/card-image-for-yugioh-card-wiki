@@ -1,5 +1,5 @@
 {
-  "name": "image-viewer-for-yugioh-card-wiki",
+  "name": "card-image-for-yugioh-card-wiki",
   "version": "0.0.1",
   "description": "Show card images on Yu-Gi-Oh! Card Wiki.",
   "main": "bundle.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki"
+    "url": "https://github.com/itiut/card-image-for-yugioh-card-wiki"
   },
   "author": "Yuichi Tanikawa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki/issues"
+    "url": "https://github.com/itiut/card-image-for-yugioh-card-wiki/issues"
   },
-  "homepage": "https://github.com/itiut/image-viewer-for-yugioh-card-wiki",
+  "homepage": "https://github.com/itiut/card-image-for-yugioh-card-wiki",
   "devDependencies": {
     "browserify": "^13.1.0",
     "chai": "^3.5.0",

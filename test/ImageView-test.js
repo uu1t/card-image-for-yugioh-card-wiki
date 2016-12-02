@@ -39,7 +39,7 @@ describe('ImageView', function () {
       var $image = $name.nextSibling;
       expect($image).to.have.property('nodeName', 'IMG');
       expect($image).to.have.property('src', 'https://placehold.it/200x300');
-      expect($image.classList.contains('image-viewer__image')).to.be.ok();
+      expect($image.classList.contains('card-image__image')).to.be.ok();
     });
   });
 });

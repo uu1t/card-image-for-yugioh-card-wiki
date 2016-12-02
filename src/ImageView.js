@@ -8,7 +8,7 @@ function ImageView(url, $name) {
 ImageView.prototype.show = function () {
   var $img = document.createElement('img');
   $img.src = this.url;
-  $img.classList.add('image-viewer__image');
+  $img.classList.add('card-image__image');
   this.$name.parentElement.insertBefore($img, this.$name.nextSibling);
 };
 
