@@ -1,5 +1,5 @@
 module.exports = function (config) {
-  config.set({
+  var configuration = {
     basePath: '',
     frameworks: ['browserify', 'mocha'],
     files: [
@@ -25,7 +25,20 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
+    customLaunchers: {
+      ChromeTravisCi: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: false,
     concurrency: Infinity
-  });
+  };
+
+  if (process.env.TRAVIS) {
+    configuration.browsers = ['ChromeTravisCi'];
+    configuration.singleRun = true;
+  }
+
+  config.set(configuration);
 };
