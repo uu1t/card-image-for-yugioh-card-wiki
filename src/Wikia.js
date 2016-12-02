@@ -12,6 +12,9 @@ Wikia.prototype.URLs = {
 /* eslint-enable max-len */
 
 Wikia.prototype.toJSON = function (response) {
+  if (!response.ok) {
+    return Promise.reject(new Error(response.statusText));
+  }
   return response.json();
 };
 
@@ -40,7 +43,6 @@ Wikia.prototype.searchContentsFor = function (jaName, contents) {
       return contents[i].title;
     }
   }
-
   return Promise.reject(new Error('Card not found for ' + jaName));
 };
 
