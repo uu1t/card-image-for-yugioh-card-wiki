@@ -12,7 +12,8 @@
     {
       "matches": [
         "http://yugioh-wiki.net/?*",
-        "http://yugioh-wiki.net/index.php?*"
+        "http://yugioh-wiki.net/index.php?*",
+        "http://yugioh-wiki.net/pukiwiki.php?*"
       ],
       "css": ["style.css"],
       "js": ["bundle.js"]
