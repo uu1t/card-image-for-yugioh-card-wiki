@@ -1,3 +1,4 @@
+// tslint:disable:no-console
 import CardImage from './CardImage';
 import CardName from './CardName';
 import * as wikia from './wikia';

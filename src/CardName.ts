@@ -1,12 +1,5 @@
 export default class CardName {
-  private constructor(public ja: string | null, public en: string | null) {}
-
-  display(): string {
-    const names = [this.ja || '-', this.en].filter(Boolean);
-    return '《' + names.join('/') + '》';
-  }
-
-  static parse($el: Element): CardName | null {
+  public static parse($el: Element): CardName | null {
     if ($el.textContent) {
       const re = /《([^/》]+)\/?([^》]*)》/;
       const found = $el.textContent.match(re);
@@ -17,6 +10,13 @@ export default class CardName {
       }
     }
     return null;
+  }
+
+  private constructor(public ja: string | null, public en: string | null) {}
+
+  public display(): string {
+    const names = [this.ja || '-', this.en].filter(Boolean);
+    return '《' + names.join('/') + '》';
   }
 }
 

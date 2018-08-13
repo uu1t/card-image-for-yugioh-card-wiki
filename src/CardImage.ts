@@ -1,7 +1,7 @@
 export default class CardImage {
   constructor(private url: string) {}
 
-  appendTo($el: Element) {
+  public appendTo($el: Element) {
     if (!$el.parentElement) {
       return;
     }
