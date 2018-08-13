@@ -7,6 +7,8 @@
   "author": "Yuichi Tanikawa",
   "homepage_url": "https://github.com/itiut/card-image-for-yugioh-card-wiki",
   "icons": {
+    "48": "icon-48.png",
+    "128": "icon-128.png"
   },
   "content_scripts": [
     {
