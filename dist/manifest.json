@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_extName__",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "default_locale": "ja",
   "description": "__MSG_extDescription__",
   "author": "Yuichi Tanikawa",
@@ -22,5 +22,5 @@
     }
   ],
   "permissions": ["http://yugioh.wikia.com/"],
-  "minimum_chrome_version": "42"
+  "minimum_chrome_version": "55"
 }
