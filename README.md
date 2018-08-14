@@ -1,13 +1,22 @@
-カード画像 for 遊戯王カードWiki
-====
+# カード画像 for 遊戯王カード Wiki
 
-[![Build Status](https://travis-ci.org/itiut/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/itiut/card-image-for-yugioh-card-wiki)
+[![Build Status](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki)
 
-> :flower_playing_cards: [遊戯王カードWiki](http://yugioh-wiki.net/)でカード画像を表示します
+> :flower_playing_cards: [遊戯王カードWiki](http://yugioh-wiki.net/)でカード画像を表示する Chrome Extension
 
 ![Screen Shot](./images/screenshot.png)
 
-詳細説明
-----
-表示される画像は、[Yu-Gi-Oh! Wikia!](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) から取得しています。
-そのため、海外版の画像が優先されて表示されたり、海外未発売カードの画像が表示されなかったりします。
+## インストール
+
+Chrome Web Store: [https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb](https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb)
+
+Chrome Version 55 以上が必要です。
+
+## 機能
+
+[遊戯王カードWiki](http://yugioh-wiki.net/)のカードのページを訪れた時、カードの画像を[Yu-Gi-Oh! Wikia!](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia)から検索して表示します。
+多くの場合、海外版の画像が優先的に表示されます。
+
+## ライセンス
+
+[MIT](https://choosealicense.com/licenses/mit/)

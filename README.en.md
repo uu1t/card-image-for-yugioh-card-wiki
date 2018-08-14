@@ -1,13 +1,22 @@
-Card Image for Yu-Gi-Oh! Card Wiki
-====
+# Card Image for Yu-Gi-Oh! Card Wiki
 
-[![Build Status](https://travis-ci.org/itiut/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/itiut/card-image-for-yugioh-card-wiki)
+[![Build Status](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki)
 
-> :flower_playing_cards: Show card images on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/)
+> :flower_playing_cards: Chrome Extension to show card images on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/)
 
 ![Screen Shot](./images/screenshot.png)
 
-Detailed Description
-----
-Card images are retrieved from [Yu-Gi-Oh! Wikia!](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia).
-So TCG card images are prefered and OCG-only card images may not be displayed.
+## Installation
+
+Chrome Web Store: [https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb](https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb)
+
+Chrome Version 55 or higher is required.
+
+## Features
+
+When you visit card pages on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/), search [Yu-Gi-Oh! Wikia!](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) for card images, and show them if found.
+When searching, TCG card images may be prior to OCG ones.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
