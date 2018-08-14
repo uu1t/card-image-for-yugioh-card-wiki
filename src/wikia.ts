@@ -37,6 +37,12 @@ export async function _fetchImageUrl(title: string): Promise<string | null> {
   return null;
 }
 
+const excludeTitlePatterns = [
+  /^List of /,
+  /^(Chapter|Episode) Card Galleries:/,
+  / \((?!card).*\)$/
+];
+
 export async function _searchTitle(name: string): Promise<string | null> {
   const url = endpoints.search + encodeURIComponent(name);
   const response = await fetch(url);
@@ -47,7 +53,10 @@ export async function _searchTitle(name: string): Promise<string | null> {
     const $els = html.querySelectorAll('.result h1 .result-link');
     for (const $el of $els) {
       const title = $el.textContent;
-      if (title && !title.match(/^List of /)) {
+      if (
+        title &&
+        excludeTitlePatterns.every(pattern => !title.match(pattern))
+      ) {
         return title;
       }
     }
