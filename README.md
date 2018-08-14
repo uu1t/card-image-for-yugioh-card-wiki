@@ -1,4 +1,4 @@
-# カード画像 for 遊戯王カード Wiki
+# カード画像 for 遊戯王カードWiki
 
 [![Build Status](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki)
 
