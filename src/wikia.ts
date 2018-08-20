@@ -48,9 +48,8 @@ export async function _searchTitle(name: string): Promise<string | null> {
   const response = await fetch(url);
   if (response.ok) {
     const text = await response.text();
-    const html = document.createElement('html');
-    html.innerHTML = text;
-    const $els = html.querySelectorAll('.result h1 .result-link');
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const $els = doc.querySelectorAll('.result h1 .result-link');
     for (const $el of $els) {
       const title = $el.textContent;
       if (
