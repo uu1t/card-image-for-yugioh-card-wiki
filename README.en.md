@@ -2,15 +2,17 @@
 
 [![Build Status](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki)
 
-> :flower_playing_cards: Chrome Extension to show card images on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/)
+> :flower_playing_cards: Chrome/Firefox Extension to show card images on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/)
 
 ![Screen Shot](./images/screenshot.png)
 
 ## Installation
 
-Chrome Web Store: [https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb](https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb)
+**Chrome**: https://chrome.google.com/webstore/detail/npideaikogpbodfhcdcaabjnccclkfcb  
+Version 55 or higher is required.
 
-Chrome Version 55 or higher is required.
+**Firefox**: https://addons.mozilla.org/en-US/firefox/addon/card-image-for-yugioh-card-wik/  
+Version 52 or higher is required.
 
 ## Features
 
