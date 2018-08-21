@@ -50,9 +50,10 @@
   "scripts": {
     "build": "webpack",
     "lint": "tslint --project tsconfig.json",
+    "lint:ext": "npm run build -- -p && web-ext lint",
     "start:firefox": "web-ext run",
     "test": "jest",
-    "zip": "npm run build -- -p && zip -r dist.zip dist"
+    "zip": "npm run build -- -p && ./zip.sh"
   },
   "webExt": {
     "sourceDir": "dist"
