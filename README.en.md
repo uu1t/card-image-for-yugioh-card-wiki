@@ -1,6 +1,6 @@
 # Card Image for Yu-Gi-Oh! Card Wiki
 
-[![Build Status](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/kojole/card-image-for-yugioh-card-wiki)
+[![Build Status](https://travis-ci.org/uu1t/card-image-for-yugioh-card-wiki.svg?branch=master)](https://travis-ci.org/uu1t/card-image-for-yugioh-card-wiki)
 
 > :flower_playing_cards: Chrome/Firefox Extension to show card images on [Yu-Gi-Oh! Card Wiki](http://yugioh-wiki.net/)
 

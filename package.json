@@ -4,7 +4,7 @@
   "version": "0.2.2",
   "author": "Yuichi Tanikawa",
   "bugs": {
-    "url": "https://github.com/kojole/card-image-for-yugioh-card-wiki/issues"
+    "url": "https://github.com/uu1t/card-image-for-yugioh-card-wiki/issues"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
@@ -21,7 +21,7 @@
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   },
-  "homepage": "https://github.com/kojole/card-image-for-yugioh-card-wiki",
+  "homepage": "https://github.com/uu1t/card-image-for-yugioh-card-wiki",
   "jest": {
     "transform": {
       "^.+\\.html$": "html-loader-jest",
@@ -45,7 +45,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/kojole/card-image-for-yugioh-card-wiki"
+    "url": "https://github.com/uu1t/card-image-for-yugioh-card-wiki"
   },
   "scripts": {
     "build": "webpack",
