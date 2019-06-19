@@ -42,6 +42,11 @@
   },
   "license": "MIT",
   "main": "dist/bundle.js",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
+  },
   "private": true,
   "repository": {
     "type": "git",
