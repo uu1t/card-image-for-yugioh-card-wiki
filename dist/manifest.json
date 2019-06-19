@@ -29,5 +29,5 @@
       "js": ["bundle.js"]
     }
   ],
-  "permissions": ["http://yugioh.wikia.com/"]
+  "permissions": ["http://yugioh.faondom.com/"]
 }
