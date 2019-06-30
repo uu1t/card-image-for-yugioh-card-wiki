@@ -7,7 +7,7 @@ const endpoints = {
   search: origin + '/wiki/Special:Search?ns0=1&search='
 }
 
-interface ImageservingResponse {
+interface IImageservingResponse {
   image?: {
     imageserving?: string
   }
@@ -28,7 +28,7 @@ export async function _fetchImageUrl(title: string): Promise<string | null> {
   const url = endpoints.imageserving + encodeURIComponent(title)
   const response = await fetch(url)
   if (response.ok) {
-    const json: ImageservingResponse = await response.json()
+    const json: IImageservingResponse = await response.json()
     if (json.image && json.image.imageserving) {
       return json.image.imageserving
     }

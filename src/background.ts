@@ -13,7 +13,10 @@ chrome.runtime.onMessage.addListener((request: IRequest, _, sendResponse) => {
           sendResponse(url)
         }
       })
-      .catch(error => console.error(error))
+      .catch(error => {
+        // tslint:disable-next-line no-console
+        console.error(error)
+      })
     return true
   }
   return false
