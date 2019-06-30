@@ -1,23 +1,23 @@
-// tslint:disable:no-console
-import CardImage from './CardImage';
-import CardName from './CardName';
-import * as wikia from './wikia';
+import CardImage from './CardImage'
+import { display, parse } from './cardName'
 
-(async () => {
-  const $name = document.querySelector('#body > #content_1_0');
+// tslint:disable no-console
+;(async () => {
+  const $name = document.querySelector('#body > #content_1_0')
   if (!$name) {
-    return;
+    return
   }
 
-  const name = CardName.parse($name);
+  const name = parse($name)
   if (!name) {
-    return;
+    return
   }
 
-  const url = await wikia.getImageUrl(name).catch(e => console.error(e));
-  if (url) {
-    new CardImage(url).appendTo($name);
-  } else {
-    console.log('Image not found:', name.display());
-  }
-})();
+  chrome.runtime.sendMessage({ query: 'getImageUrl', ...name }, (url: string | null) => {
+    if (url) {
+      new CardImage(url).appendTo($name)
+    } else {
+      console.log('[card-image-for-yugioh-card-wiki] image not found:', display(name))
+    }
+  })
+})()
