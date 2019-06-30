@@ -1,6 +1,6 @@
-import CardName from './CardName'
+import { ICardName } from './cardName'
 
-const origin = 'http://yugioh.fandom.com'
+const origin = 'https://yugioh.fandom.com'
 
 const endpoints = {
   imageserving: origin + '/api.php?format=json&action=imageserving&wisTitle=',
@@ -13,7 +13,7 @@ interface ImageservingResponse {
   }
 }
 
-export async function getImageUrl(cardName: CardName): Promise<string | null> {
+export async function getImageUrl(cardName: ICardName): Promise<string | null> {
   const title: string | null = cardName.en || (cardName.ja ? await _searchTitle(cardName.ja) : null)
   if (title) {
     const url = await _fetchImageUrl(title)
